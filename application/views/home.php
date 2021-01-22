@@ -99,7 +99,9 @@ $logedinuser =  $this->session->userdata('loggedin_client') ;
 						</div>
 					</div>
 
-					<?php echo $this->session->flashdata('msg');?>
+					<div class="container pl-5">						
+						<?php echo $this->session->flashdata('msg');?>
+					</div>
 
 					<?php if($sj_health!=''){?>
 

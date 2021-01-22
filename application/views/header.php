@@ -158,7 +158,7 @@ input[type=checkbox]:hover {
   <div class="side-menu">
     <ul class="menu">
       <?php $actlinks=$this->uri->segment(1);
-      if($userdata['department']!='Data' && $userdata['department']!='Qa'){
+      if($userdata['department']!='DATA' && $userdata['department']!='Qa'){
       ?>
       <li class="<?php if($actlinks == "home") echo "active";?>"><i class="far fa-file-word"></i>
         <a class="<?php if($actlinks == "home") echo "active";?>" href="<?php echo base_url();?>home">Claims Assigned</a>
@@ -171,7 +171,7 @@ input[type=checkbox]:hover {
       </li>
       <?php }
 
-      if($userdata['department']!='Data'  && $userdata['department']!='Qa'){
+      if($userdata['department']!='DATA'  && $userdata['department']!='Qa'){
       ?>
 
       <?php if($userdata['role']=='agent'){?>
@@ -188,7 +188,7 @@ input[type=checkbox]:hover {
       </li>
       <?php } ?>
 
-      <?php if($userdata['role']=='admin' || $userdata['role']=='manager' || ($userdata['role']=='supervisor' && $userdata['department']!='Data'  || $userdata['department']=='Qa')){?>
+      <?php if($userdata['role']=='admin' || $userdata['role']=='manager' || ($userdata['role']=='supervisor' && $userdata['department']!='DATA'  || $userdata['department']=='Qa')){?>
       <li class="<?php if($actlinks  == "overall_completed") echo "active";?>">
       <i class="far fa-file-word"></i>
       <a class="<?php if($actlinks == "overall_completed") echo "active";?>" href="<?php echo base_url();?>overall_completed">Completed Claims</a>
@@ -205,31 +205,31 @@ input[type=checkbox]:hover {
       </li>
       <?php } ?>
 
-      <?php if($userdata['role']=='admin' || $userdata['role']=='manager' || ($userdata['role']=='supervisor' && $userdata['department']!='Data')){?>
+      <?php if($userdata['role']=='admin' || $userdata['role']=='manager' || ($userdata['role']=='supervisor' && $userdata['department']!='DATA')){?>
       <li class="<?php if($actlinks  == "assignagents") echo "active";?>">
         <i class="fas fa-database"></i>
         <a class="<?php if($actlinks == "assignagents") echo "active";?>" href="<?php echo base_url();?>assignagents">Assign Claims</a>
       </li>
       <?php } ?>
 
-       <?php if($userdata['role']=='admin'  || $userdata['role']=='manager' || ($userdata['role']=='supervisor' && $userdata['department']!='Data'  || $userdata['department']=='Qa')){?>
+       <?php if($userdata['role']=='admin'  || $userdata['role']=='manager' || ($userdata['role']=='supervisor' && $userdata['department']!='DATA'  || $userdata['department']=='Qa')){?>
         <li class="<?php if($actlinks  == "completed_qa") echo "active";?>">
           <i class="fas fa-address-card"></i>
           <a class="<?php if($actlinks == "completed_qa") echo "active";?>" href="<?php echo base_url();?>completed_qa">QAed Claims</a>
         </li>
       <?php } ?>
 
-      <?php if($userdata['role']=='admin' || $userdata['role']=='manager' || ($userdata['role']=='supervisor' && $userdata['department']!='Data')){?>
+      <?php if($userdata['role']=='admin' || $userdata['role']=='manager' || ($userdata['role']=='supervisor' && $userdata['department']!='DATA')){?>
       <li><i class="fas fa-lock"></i><a href="#" class="" data-toggle="modal" data-target="#resetPassword">Reset Agent Password</a></li>
       <?php } ?>
 
-      <?php if($userdata['role']=='admin' || $userdata['role']=='manager' || ($userdata['role']=='supervisor' && $userdata['department']!='Data')){?>
+      <?php if($userdata['role']=='admin' || $userdata['role']=='manager' || ($userdata['role']=='supervisor' && $userdata['department']!='DATA')) {?>
        <li class="<?php if($actlinks  == "not_workable") echo "active";?>">
         <i class="fas fa-times"></i>
         <a class="<?php if($actlinks == "not_workable") echo "active";?>" href="<?php echo base_url();?>not_workable">Not Workable</a>
       </li>
       <?php } ?>
-      <?php  if($userdata['department'] == "Data" && $userdata['role'] != "admin"){?>
+      <?php  if($userdata['department']=='DATA' && $userdata['role'] != "admin"){?>
         <li class="<?php if($actlinks  == "Dataprocess" || $actlinks  == "dataprocess") echo "active";?>">
           <i class="fas fa-shield-alt"></i>
           <a class="<?php if($actlinks == "Dataprocess"  || $actlinks  == "dataprocess") echo "active";?>" href="<?php echo base_url();?>dataprocess">Data Productivity</a>
@@ -244,31 +244,31 @@ input[type=checkbox]:hover {
           <a class="<?php if($actlinks == "export_report") echo "active";?>" href="<?php echo base_url();?>export_report">Export Report</a>
         </li>
       <?php } ?>
-      <?php if($userdata['role']=='admin' || $userdata['role']=='manager' || ($userdata['role']=='supervisor' && $userdata['department']!='Data') ){?>
+      <?php if($userdata['role']=='admin' || $userdata['role']=='manager' || ($userdata['role']=='supervisor' && $userdata['department']!='DATA') ){?>
         <li class="<?php if($actlinks  == "agentreport") echo "active";?>">
           <i class="fas fa-table"></i>
           <a class="<?php if($actlinks == "agentreport") echo "active";?>" href="<?php echo base_url();?>workreport">Agent Report</a>
         </li>
       <?php } ?>
-      <?php if($userdata['role']=='admin' || $userdata['role']=='manager' || $userdata['role']=='agent' && $userdata['department']!='Data' || $userdata['role'] == 'qa' ){ ?>
+      <?php if($userdata['role']=='admin' || $userdata['role']=='manager' || $userdata['role']=='agent' && $userdata['department']!='DATA' || $userdata['role'] == 'qa' ){ ?>
       <li class="<?php if($actlinks  == "rework_claims") echo "active";?>">
           <i class="fas fa-address-card"></i>
           <a class="<?php if($actlinks == "rework_claims") echo "active";?>" href="<?php echo base_url();?>rework_claims">QA Rework</a>
         </li>
         <?php } ?>
-      <?php if($userdata['role']=='admin' || $userdata['role']=='manager' ||($userdata['role']=='supervisor' && $userdata['department']!='Data' || $userdata['department']=='Qa')){?>
+      <?php if($userdata['role']=='admin' || $userdata['role']=='manager' ||($userdata['role']=='supervisor' && $userdata['department']!='DATA' || $userdata['department']=='Qa')){?>
         <li class="<?php if($actlinks  == "qa_report") echo "active";?>">
           <i class="far fa-file-word"></i>
           <a class="<?php if($actlinks == "qa_report") echo "active";?>" href="<?php echo base_url();?>qa_report">QA Module</a>
 
-      <?php if($userdata['role']=='admin' || $userdata['role']=='manager' ||  ($userdata['role']=='supervisor' && $userdata['department']!='Data' || $userdata['department']=='Qa')){?>
+      <?php if($userdata['role']=='admin' || $userdata['role']=='manager' ||  ($userdata['role']=='supervisor' && $userdata['department']!='DATA' || $userdata['department']=='Qa')){?>
         <li class="<?php if($actlinks  == "qa_dashboard") echo "active";?>">
           <i class="far fa-file-word"></i>
           <a class="<?php if($actlinks == "qa_dashboard") echo "active";?>" href="<?php echo base_url();?>qa_dashboard">QA Dashboard</a>
         </li>
       <?php } ?>
 
-       <?php if($userdata['role']=='admin' || $userdata['role']=='manager' ||  ($userdata['role']=='supervisor' && $userdata['department']!='Data' || $userdata['department']=='Qa')){?>
+       <?php if($userdata['role']=='admin' || $userdata['role']=='manager' ||  ($userdata['role']=='supervisor' && $userdata['department']!='DATA' || $userdata['department']=='Qa')){?>
         <li class="<?php if($actlinks  == "quality_dashboard") echo "active";?>">
           <i class="far fa-file-word"></i>
           <a class="<?php if($actlinks == "quality_dashboard") echo "active";?>" href="<?php echo base_url();?>quality_dashboard">Quality Dashboard</a>
@@ -389,7 +389,7 @@ input[type=checkbox]:hover {
           <p class="">Confirm Password:</p>
           <input class="col-md-12 col-xs-12 form-control" type="password" id="confirm_password" name="confirm_password" placeholder="Password" required="" onChange="checkPasswordMatch();">
 
-          <p class="divCheckPasswordMatch">.</p>
+          <p class="divCheckPasswordMatch"></p>
 
           <input type="submit" name="password" class="apply formSubmit" value="Submit" id="apply">
           <input type="button" value="Cancel" class="apply" data-dismiss="modal" >
@@ -414,7 +414,7 @@ input[type=checkbox]:hover {
           <!-- <input type="hidden" name="userid" value="<?php echo $userdata['user_id'];?>" id="user_id"> -->
           <?php
               $userdata=$this->session->all_userdata();
-              if($userdata['department']=='Data'){
+              if($userdata['department']=='DATA'){
                 $user = $this->db->query("SELECT * FROM users WHERE role!='admin' AND department='Data' ");
                 $usr_data=$user->result();
               }else{

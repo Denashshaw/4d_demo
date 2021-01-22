@@ -3,26 +3,25 @@
  {
 
 
-   public function logincheck($details){
-
-   $q=$this->db->query("SELECT * FROM `users` WHERE username='".$details['username']."' and password='".md5($details['password'])."' ");
-
-     if($q->num_rows() == 0){
-     return false;
-   }
+   public function logincheck($details){      
+   $q=$this->db->query("SELECT * FROM `4d_hrms`.`users` WHERE username='".$details['username']."' and password='".md5($details['password'])."' ");  
+    if($q->num_rows() == 0){
+      return false;
+    }
 
    else
    {
      $this->db->where(array('username' => $details['username'],'password'=>md5($details['password'])));
-     $query  =  $this->db->get('users');
+     $query  =  $this->db->get('`4d_hrms`.`users`');     
+     // echo $this->db->last_query();die;
      return $query->result();
    }
 
  }
 
 	  public function logindata(){
-		    $userdata=$this->session->all_userdata();
-		    $login =$this->db->query("SELECT * FROM users WHERE username='".$userdata['username']."' ");
+		  $userdata=$this->session->all_userdata();
+		  $login =$this->db->query("SELECT * FROM users WHERE username='".$userdata['username']."' ");
   		return $login->result();
   	}
 

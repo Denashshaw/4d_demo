@@ -25,6 +25,20 @@ class Login extends CI_Controller {
 			}
 			else
 			{
+				$client = $this->db->query("SELECT keyword FROM client")->result_array();    
+			    $count = count($client);
+			    foreach ($client as $i => $value) {
+			      $test .= $value['keyword'];
+			      
+			      if($i < ($count - 1)){
+			        $test .= ',';
+			      }
+			    }
+
+			  $res = $this->db->query("SELECT FIND_IN_SET('".$result[0]->client."' , '".$test."')  as res")->row();			  
+			  $client_exists = $res->res;
+			  
+			  if($client_exists){
 				$userdata = array(
 					'userid'	=> $result[0]->id,
 					'emp_id'    => $result[0]->emp_id,
@@ -54,6 +68,10 @@ class Login extends CI_Controller {
 					$this->session->set_userdata($userdata);				
 					redirect('home/index');
 				}
+			  }else{
+			  	$login["errors"]="<p style='color:red'>Your client is not available!</p>";
+				$this->load->view('login',$login);
+			  }
 			}
 		} else {
 			$this->load->view('login');
